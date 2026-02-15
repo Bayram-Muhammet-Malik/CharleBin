@@ -114,8 +114,37 @@ git bisect reset
 
 ## Séance 2 ##
 
+### Transparents 1 ###
+
+- Création d'un repository sur GitHub : CharleBin
+- branchage du PrivateBin au nouveau repository
+- push tout le main dans ce repository
+
+```
+git remote set-url origin 
+https://github.com/Bayram-Muhammet-Malik/CharleBin.git
+
+git push
+```
+
+### Transparents 2 ###
+
+- Modifications de PrivateBin en CharleBin dans lib/Configuration.php
+- Le changement aparaîtra en locale après `git pull`
 
 
+### Transparents 3 ###
+
+- Ouvrir une pull request pour supprimer le footer de PrivateBin
+- Fait dans GitHub
+
+
+
+### Transparents 4 ###
+
+- un README.md pour expliquer ce que CharleBin fait
+- un contributing.md pour les PR
+- une template de PR
 
 
 
