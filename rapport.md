@@ -173,3 +173,47 @@ nano ruleset.xm
 ./vendor/bin/phpmd ./test ansi codesize,unusedcode,naming
 ```
 
+
+## Séance 4 ##
+
+### Transparents 1 ###
+
+- Installation de copilot sur VSCode
+- réecriture de la méthode formatHumanReadableTime avec copilot
+- les suggestions de copilot ne sont pas très pertinentes sauf
+au moment ou on le guide bien
+
+```
+public static function formatHumanReadableTime(int $value, string $unit)
+{
+    switch ($unit) {
+        case 'sec':
+        case 'second':
+        case 'seconds':
+            $unit = 'second';
+            break;
+
+        case 'min':
+        case 'minute':
+        case 'minutes':
+            $unit = 'minute';
+            break;
+
+        default:
+            // On enlève un éventuel "s" final pour avoir l'unité au singulier
+            $unit = rtrim($unit, 's');
+            break;
+    }
+
+    return I18n::_(
+        ['%d ' . $unit, '%d ' . $unit . 's'],
+        $value
+    );
+}
+
+```
+
+### Transparents 2 ###
+
+- Trouver le mot de passe entrée dans le champ password
+- Il se trouve dans la balise avec id=passwordinput et il dans value
