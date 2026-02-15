@@ -217,3 +217,54 @@ public static function formatHumanReadableTime(int $value, string $unit)
 
 - Trouver le mot de passe entrée dans le champ password
 - Il se trouve dans la balise avec id=passwordinput et il dans value
+
+
+
+## Séance 5 ##
+
+### Transparents 1 ###
+
+- Installation de Cypress
+- Ecriture du test e2e
+
+
+```
+npx cypress install
+npx cypress open
+
+nano cupress/e2e/spec.py.js
+
+```
+
+`
+describe('template spec', () => {
+  it('passes', () => {
+
+    let msg = 'mon message';
+    let mdp = 'mdp';
+    cy.visit('http://localhost:8080/');
+
+    //on ecrit le message et mdp
+    cy.get('#message').type(msg);
+    cy.get('#passwordinput').type(mdp);
+
+    //click sur envoyer
+    cy.contains('Envoyer').click();
+
+    //lorsque la nouvelle page apparait avec l url
+    cy.get('#pasteurl').invoke('attr', 'href').then((pasteUrl) => {
+      cy.reload(true);
+      cy.visit(pasteUrl);
+
+      cy.get('input#passworddecrypt').type(mdp); // on ecrit le mdp
+      cy.contains('Déchiffrer').click();
+
+      // on compare le msg
+      cy.get('#prettyprint').should('contains.text', msg);
+
+    });
+  })
+})
+
+
+`
